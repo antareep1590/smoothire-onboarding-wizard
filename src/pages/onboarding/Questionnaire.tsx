@@ -25,23 +25,21 @@ export default function Questionnaire() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <ProgressBar currentStep={2} totalSteps={6} steps={STEPS} />
-      
-      <div className="container max-w-3xl mx-auto px-4 py-12">
-        <div className="bg-card rounded-lg shadow-card p-8 border border-border">
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold text-foreground mb-2">Tell us about your needs</h1>
-            <p className="text-muted-foreground">
+    <ProgressBar currentStep={2} steps={STEPS}>
+      <div className="container max-w-4xl mx-auto px-6 py-12 lg:py-16">
+        <div className="bg-card rounded-xl shadow-card p-8 lg:p-12 border border-border">
+          <div className="mb-10">
+            <h1 className="text-3xl lg:text-4xl font-bold text-primary mb-3">Tell us about your needs</h1>
+            <p className="text-lg text-muted-foreground">
               Help us understand your recruiting goals so we can tailor Smoothire to your needs.
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-8">
+          <form onSubmit={handleSubmit} className="space-y-10">
             {/* Question 1 */}
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <Label className="text-base font-semibold">What's your primary goal with a new ATS?</Label>
+                <Label className="text-lg font-semibold">What's your primary goal with a new ATS?</Label>
                 <HelpCircle className="w-4 h-4 text-muted-foreground" />
               </div>
               <RadioGroup
@@ -49,25 +47,25 @@ export default function Questionnaire() {
                 onValueChange={(value) => setFormData({ ...formData, goal: value })}
                 className="space-y-3"
               >
-                <div className="flex items-center space-x-2 p-3 rounded-md border border-border hover:bg-muted/50 transition-colors">
+                <div className="flex items-center space-x-2 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors">
                   <RadioGroupItem value="streamline" id="streamline" />
                   <Label htmlFor="streamline" className="cursor-pointer flex-1 font-normal">
                     Streamline our hiring process
                   </Label>
                 </div>
-                <div className="flex items-center space-x-2 p-3 rounded-md border border-border hover:bg-muted/50 transition-colors">
+                <div className="flex items-center space-x-2 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors">
                   <RadioGroupItem value="collaboration" id="collaboration" />
                   <Label htmlFor="collaboration" className="cursor-pointer flex-1 font-normal">
                     Improve team collaboration
                   </Label>
                 </div>
-                <div className="flex items-center space-x-2 p-3 rounded-md border border-border hover:bg-muted/50 transition-colors">
+                <div className="flex items-center space-x-2 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors">
                   <RadioGroupItem value="insights" id="insights" />
                   <Label htmlFor="insights" className="cursor-pointer flex-1 font-normal">
                     Get better hiring insights and analytics
                   </Label>
                 </div>
-                <div className="flex items-center space-x-2 p-3 rounded-md border border-border hover:bg-muted/50 transition-colors">
+                <div className="flex items-center space-x-2 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors">
                   <RadioGroupItem value="experience" id="experience" />
                   <Label htmlFor="experience" className="cursor-pointer flex-1 font-normal">
                     Enhance candidate experience
@@ -79,35 +77,35 @@ export default function Questionnaire() {
             {/* Question 2 */}
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <Label className="text-base font-semibold">What are your main evaluation criteria for an ATS?</Label>
+                <Label className="text-lg font-semibold">What are your main evaluation criteria for an ATS?</Label>
                 <HelpCircle className="w-4 h-4 text-muted-foreground" />
               </div>
               <Textarea
                 placeholder="E.g., ease of use, integrations, pricing, reporting capabilities..."
                 value={formData.criteria}
                 onChange={(e) => setFormData({ ...formData, criteria: e.target.value })}
-                className="min-h-[100px]"
+                className="min-h-[120px]"
               />
             </div>
 
             {/* Question 3 */}
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <Label className="text-base font-semibold">What are your current process pain points?</Label>
+                <Label className="text-lg font-semibold">What are your current process pain points?</Label>
                 <HelpCircle className="w-4 h-4 text-muted-foreground" />
               </div>
               <Textarea
                 placeholder="Tell us about the challenges you're facing with your current recruiting process..."
                 value={formData.painPoints}
                 onChange={(e) => setFormData({ ...formData, painPoints: e.target.value })}
-                className="min-h-[100px]"
+                className="min-h-[120px]"
               />
             </div>
 
             {/* Question 4 */}
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <Label htmlFor="teamSize" className="text-base font-semibold">
+                <Label htmlFor="teamSize" className="text-lg font-semibold">
                   How many recruiters will need access?
                 </Label>
                 <HelpCircle className="w-4 h-4 text-muted-foreground" />
@@ -119,6 +117,7 @@ export default function Questionnaire() {
                 placeholder="Number of team members"
                 value={formData.teamSize}
                 onChange={(e) => setFormData({ ...formData, teamSize: e.target.value })}
+                className="max-w-xs"
               />
               <p className="text-sm text-muted-foreground">
                 This helps us recommend the right plan and features for your team.
@@ -130,17 +129,17 @@ export default function Questionnaire() {
                 type="button"
                 variant="outline"
                 onClick={() => navigate("/onboarding/welcome")}
-                className="flex-1"
+                className="flex-1 max-w-xs"
               >
                 Back
               </Button>
-              <Button type="submit" className="flex-1">
+              <Button type="submit" className="flex-1 max-w-xs">
                 Continue
               </Button>
             </div>
           </form>
         </div>
       </div>
-    </div>
+    </ProgressBar>
   );
 }

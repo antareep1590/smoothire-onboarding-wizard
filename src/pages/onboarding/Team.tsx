@@ -74,14 +74,12 @@ export default function Team() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <ProgressBar currentStep={4} totalSteps={6} steps={STEPS} />
-      
-      <div className="container max-w-4xl mx-auto px-4 py-12">
-        <div className="bg-card rounded-lg shadow-card p-8 border border-border">
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold text-foreground mb-2">Add Your Team</h1>
-            <p className="text-muted-foreground">
+    <ProgressBar currentStep={4} steps={STEPS}>
+      <div className="container max-w-4xl mx-auto px-6 py-12 lg:py-16">
+        <div className="bg-card rounded-xl shadow-card p-8 lg:p-12 border border-border">
+          <div className="mb-10">
+            <h1 className="text-3xl lg:text-4xl font-bold text-primary mb-3">Add Your Team</h1>
+            <p className="text-lg text-muted-foreground">
               Invite your team members to collaborate on recruiting.
             </p>
           </div>
@@ -218,17 +216,17 @@ export default function Team() {
                 type="button"
                 variant="outline"
                 onClick={() => navigate("/onboarding/company")}
-                className="flex-1"
+                className="flex-1 max-w-xs"
               >
                 Back
               </Button>
-              <Button type="submit" className="flex-1">
+              <Button type="submit" className="flex-1 max-w-xs">
                 Continue
               </Button>
             </div>
           </form>
         </div>
       </div>
-    </div>
+    </ProgressBar>
   );
 }

@@ -43,6 +43,10 @@ export default {
           DEFAULT: "hsl(var(--success))",
           foreground: "hsl(var(--success-foreground))",
         },
+        "progress-sidebar-bg": "hsl(var(--progress-sidebar-bg))",
+        "progress-step-inactive": "hsl(var(--progress-step-inactive))",
+        "progress-step-active": "hsl(var(--progress-step-active))",
+        "progress-step-complete": "hsl(var(--progress-step-complete))",
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",

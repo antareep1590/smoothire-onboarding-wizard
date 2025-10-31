@@ -50,19 +50,17 @@ export default function Company() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <ProgressBar currentStep={3} totalSteps={6} steps={STEPS} />
-      
-      <div className="container max-w-3xl mx-auto px-4 py-12">
-        <div className="bg-card rounded-lg shadow-card p-8 border border-border">
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold text-foreground mb-2">Company Details</h1>
-            <p className="text-muted-foreground">
+    <ProgressBar currentStep={3} steps={STEPS}>
+      <div className="container max-w-4xl mx-auto px-6 py-12 lg:py-16">
+        <div className="bg-card rounded-xl shadow-card p-8 lg:p-12 border border-border">
+          <div className="mb-10">
+            <h1 className="text-3xl lg:text-4xl font-bold text-primary mb-3">Company Details</h1>
+            <p className="text-lg text-muted-foreground">
               Tell us about your organization to personalize your experience.
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-8">
             {/* Company Name */}
             <div className="space-y-2">
               <Label htmlFor="companyName">Company Name *</Label>
@@ -186,17 +184,17 @@ export default function Company() {
                 type="button"
                 variant="outline"
                 onClick={() => navigate("/onboarding/questionnaire")}
-                className="flex-1"
+                className="flex-1 max-w-xs"
               >
                 Back
               </Button>
-              <Button type="submit" className="flex-1" disabled={!formData.companyName || !formData.companyType}>
+              <Button type="submit" className="flex-1 max-w-xs" disabled={!formData.companyName || !formData.companyType}>
                 Continue
               </Button>
             </div>
           </form>
         </div>
       </div>
-    </div>
+    </ProgressBar>
   );
 }

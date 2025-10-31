@@ -30,15 +30,13 @@ export default function Welcome() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <ProgressBar currentStep={1} totalSteps={6} steps={STEPS} />
-      
-      <div className="container max-w-6xl mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+    <ProgressBar currentStep={1} steps={STEPS}>
+      <div className="container max-w-6xl mx-auto px-6 py-12 lg:py-16">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Side - Welcome Content */}
           <div className="space-y-6">
             <div className="space-y-4">
-              <h1 className="text-5xl font-bold text-foreground leading-tight">
+              <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
                 Welcome to <span className="text-primary">Smoothire</span>
               </h1>
               <p className="text-xl text-muted-foreground">
@@ -72,8 +70,8 @@ export default function Welcome() {
           </div>
 
           {/* Right Side - Registration Form */}
-          <div className="bg-card rounded-lg shadow-card p-8 border border-border">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Create your account</h2>
+          <div className="bg-card rounded-xl shadow-card p-8 border border-border">
+            <h2 className="text-2xl font-bold text-primary mb-6">Create your account</h2>
             
             <div className="space-y-4">
               {/* SSO Buttons */}
@@ -194,6 +192,6 @@ export default function Welcome() {
           </div>
         </div>
       </div>
-    </div>
+    </ProgressBar>
   );
 }

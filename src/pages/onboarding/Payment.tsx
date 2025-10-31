@@ -28,16 +28,14 @@ export default function Payment() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <ProgressBar currentStep={5} totalSteps={6} steps={STEPS} />
-      
-      <div className="container max-w-4xl mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-2 gap-8">
+    <ProgressBar currentStep={5} steps={STEPS}>
+      <div className="container max-w-5xl mx-auto px-6 py-12 lg:py-16">
+        <div className="grid lg:grid-cols-2 gap-8">
           {/* Left Side - Trial Info */}
           <div className="space-y-6">
             <div>
-              <h1 className="text-3xl font-bold text-foreground mb-2">Start Your Free Trial</h1>
-              <p className="text-muted-foreground">
+              <h1 className="text-3xl lg:text-4xl font-bold text-primary mb-3">Start Your Free Trial</h1>
+              <p className="text-lg text-muted-foreground">
                 Get full access to Smoothire for 14 days, completely free.
               </p>
             </div>
@@ -88,7 +86,7 @@ export default function Payment() {
           </div>
 
           {/* Right Side - Payment Form */}
-          <div className="bg-card rounded-lg shadow-card p-8 border border-border">
+          <div className="bg-card rounded-xl shadow-card p-8 lg:p-10 border border-border">
             <div className="flex items-center gap-2 mb-6">
               <CreditCard className="w-5 h-5 text-primary" />
               <h2 className="text-xl font-bold text-foreground">Payment Details</h2>
@@ -171,6 +169,6 @@ export default function Payment() {
           </Button>
         </div>
       </div>
-    </div>
+    </ProgressBar>
   );
 }

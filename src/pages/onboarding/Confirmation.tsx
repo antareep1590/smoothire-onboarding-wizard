@@ -10,11 +10,9 @@ export default function Confirmation() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-background">
-      <ProgressBar currentStep={6} totalSteps={6} steps={STEPS} />
-      
-      <div className="container max-w-4xl mx-auto px-4 py-12">
-        <div className="text-center space-y-6">
+    <ProgressBar currentStep={6} steps={STEPS}>
+      <div className="container max-w-4xl mx-auto px-6 py-12 lg:py-16">
+        <div className="text-center space-y-8">
           {/* Success Icon */}
           <div className="flex justify-center">
             <div className="w-20 h-20 rounded-full bg-success/10 flex items-center justify-center">
@@ -23,8 +21,8 @@ export default function Confirmation() {
           </div>
 
           {/* Heading */}
-          <div className="space-y-2">
-            <h1 className="text-4xl font-bold text-foreground">
+          <div className="space-y-3">
+            <h1 className="text-4xl lg:text-5xl font-bold text-foreground">
               Welcome to <span className="text-primary">Smoothire!</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -97,6 +95,6 @@ export default function Confirmation() {
           </Card>
         </div>
       </div>
-    </div>
+    </ProgressBar>
   );
 }
