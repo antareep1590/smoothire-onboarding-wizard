@@ -34,8 +34,8 @@ export default function Payment() {
           {/* Left Side - Trial Info */}
           <div className="space-y-6">
             <div>
-              <h1 className="text-3xl lg:text-4xl font-bold text-primary mb-3">Start Your Free Trial</h1>
-              <p className="text-lg text-muted-foreground">
+              <h1 className="text-3xl lg:text-4xl font-semibold text-foreground mb-3 tracking-tight">Start Your Free Trial</h1>
+              <p className="text-base text-muted-foreground">
                 Get full access to Smoothire for 14 days, completely free.
               </p>
             </div>

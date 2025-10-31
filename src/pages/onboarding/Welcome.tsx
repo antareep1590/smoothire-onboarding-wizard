@@ -36,10 +36,10 @@ export default function Welcome() {
           {/* Left Side - Welcome Content */}
           <div className="space-y-6">
             <div className="space-y-4">
-              <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-                Welcome to <span className="text-primary">Smoothire</span>
+              <h1 className="text-4xl lg:text-5xl font-semibold text-foreground leading-tight tracking-tight">
+                Welcome to Smoothire
               </h1>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-lg text-muted-foreground">
                 Simplify your hiring, collaborate with ease, get insights that matter.
               </p>
             </div>
@@ -71,7 +71,7 @@ export default function Welcome() {
 
           {/* Right Side - Registration Form */}
           <div className="bg-card rounded-xl shadow-card p-8 border border-border">
-            <h2 className="text-2xl font-bold text-primary mb-6">Create your account</h2>
+            <h2 className="text-2xl font-semibold text-foreground mb-6">Create your account</h2>
             
             <div className="space-y-4">
               {/* SSO Buttons */}

@@ -22,10 +22,10 @@ export default function Confirmation() {
 
           {/* Heading */}
           <div className="space-y-3">
-            <h1 className="text-4xl lg:text-5xl font-bold text-foreground">
-              Welcome to <span className="text-primary">Smoothire!</span>
+            <h1 className="text-4xl lg:text-5xl font-semibold text-foreground tracking-tight">
+              Welcome to Smoothire!
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Your account is all set up and ready to go. Let's revolutionize your hiring process together.
             </p>
           </div>

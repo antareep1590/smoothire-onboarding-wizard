@@ -29,8 +29,8 @@ export default function Questionnaire() {
       <div className="container max-w-4xl mx-auto px-6 py-12 lg:py-16">
         <div className="bg-card rounded-xl shadow-card p-8 lg:p-12 border border-border">
           <div className="mb-10">
-            <h1 className="text-3xl lg:text-4xl font-bold text-primary mb-3">Tell us about your needs</h1>
-            <p className="text-lg text-muted-foreground">
+            <h1 className="text-3xl lg:text-4xl font-semibold text-foreground mb-3 tracking-tight">Tell us about your needs</h1>
+            <p className="text-base text-muted-foreground">
               Help us understand your recruiting goals so we can tailor Smoothire to your needs.
             </p>
           </div>
@@ -39,7 +39,7 @@ export default function Questionnaire() {
             {/* Question 1 */}
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <Label className="text-lg font-semibold">What's your primary goal with a new ATS?</Label>
+                <Label className="text-base font-semibold">What's your primary goal with a new ATS?</Label>
                 <HelpCircle className="w-4 h-4 text-muted-foreground" />
               </div>
               <RadioGroup
@@ -77,7 +77,7 @@ export default function Questionnaire() {
             {/* Question 2 */}
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <Label className="text-lg font-semibold">What are your main evaluation criteria for an ATS?</Label>
+                <Label className="text-base font-semibold">What are your main evaluation criteria for an ATS?</Label>
                 <HelpCircle className="w-4 h-4 text-muted-foreground" />
               </div>
               <Textarea
@@ -91,7 +91,7 @@ export default function Questionnaire() {
             {/* Question 3 */}
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <Label className="text-lg font-semibold">What are your current process pain points?</Label>
+                <Label className="text-base font-semibold">What are your current process pain points?</Label>
                 <HelpCircle className="w-4 h-4 text-muted-foreground" />
               </div>
               <Textarea
@@ -105,7 +105,7 @@ export default function Questionnaire() {
             {/* Question 4 */}
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <Label htmlFor="teamSize" className="text-lg font-semibold">
+                <Label htmlFor="teamSize" className="text-base font-semibold">
                   How many recruiters will need access?
                 </Label>
                 <HelpCircle className="w-4 h-4 text-muted-foreground" />

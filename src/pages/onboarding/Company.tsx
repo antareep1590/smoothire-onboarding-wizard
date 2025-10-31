@@ -54,8 +54,8 @@ export default function Company() {
       <div className="container max-w-4xl mx-auto px-6 py-12 lg:py-16">
         <div className="bg-card rounded-xl shadow-card p-8 lg:p-12 border border-border">
           <div className="mb-10">
-            <h1 className="text-3xl lg:text-4xl font-bold text-primary mb-3">Company Details</h1>
-            <p className="text-lg text-muted-foreground">
+            <h1 className="text-3xl lg:text-4xl font-semibold text-foreground mb-3 tracking-tight">Company Details</h1>
+            <p className="text-base text-muted-foreground">
               Tell us about your organization to personalize your experience.
             </p>
           </div>
