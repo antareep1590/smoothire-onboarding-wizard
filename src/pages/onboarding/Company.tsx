@@ -8,7 +8,7 @@ import { ProgressBar } from "@/components/onboarding/ProgressBar";
 import { Upload, Building2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
-const STEPS = ["Welcome", "Questions", "Company", "Team", "Payment", "Done"];
+const STEPS = ["Welcome", "Questions", "Company", "Payment", "Done"];
 
 export default function Company() {
   const navigate = useNavigate();
@@ -46,7 +46,7 @@ export default function Company() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    navigate("/onboarding/team");
+    navigate("/onboarding/payment");
   };
 
   return (
@@ -61,32 +61,58 @@ export default function Company() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-8">
-            {/* Company Name */}
-            <div className="space-y-2">
-              <Label htmlFor="companyName">Company Name *</Label>
-              <Input
-                id="companyName"
-                required
-                value={formData.companyName}
-                onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                placeholder="Your company name"
-              />
-            </div>
-
-            {/* Logo Upload */}
-            <div className="space-y-2">
-              <Label>Company Logo</Label>
-              <div className="flex items-center gap-4">
-                <div className="w-24 h-24 rounded-lg border-2 border-dashed border-border flex items-center justify-center bg-muted/50">
-                  {logoPreview ? (
-                    <img src={logoPreview} alt="Logo preview" className="w-full h-full object-contain rounded-lg" />
-                  ) : (
-                    <Building2 className="w-8 h-8 text-muted-foreground" />
-                  )}
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Left Column */}
+              <div className="space-y-8">
+                {/* Company Name */}
+                <div className="space-y-2">
+                  <Label htmlFor="companyName">Company Name *</Label>
+                  <Input
+                    id="companyName"
+                    required
+                    value={formData.companyName}
+                    onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                    placeholder="Your company name"
+                  />
                 </div>
-                <div className="flex-1">
+
+                {/* Website */}
+                <div className="space-y-2">
+                  <Label htmlFor="website">Website</Label>
+                  <Input
+                    id="website"
+                    type="url"
+                    value={formData.website}
+                    onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                    placeholder="https://example.com"
+                  />
+                </div>
+
+                {/* Location */}
+                <div className="space-y-2">
+                  <Label htmlFor="location">Primary Location</Label>
+                  <Input
+                    id="location"
+                    value={formData.location}
+                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                    placeholder="City, Country"
+                  />
+                </div>
+              </div>
+
+              {/* Right Column - Logo Upload */}
+              <div className="space-y-2">
+                <Label>Company Logo</Label>
+                <div className="flex flex-col items-center justify-center gap-4 p-8 border-2 border-dashed border-border rounded-lg bg-muted/50 h-full min-h-[300px]">
+                  <div className="w-32 h-32 rounded-lg flex items-center justify-center bg-background">
+                    {logoPreview ? (
+                      <img src={logoPreview} alt="Logo preview" className="w-full h-full object-contain rounded-lg" />
+                    ) : (
+                      <Building2 className="w-12 h-12 text-muted-foreground" />
+                    )}
+                  </div>
                   <Label htmlFor="logo" className="cursor-pointer">
-                    <div className="flex items-center gap-2 px-4 py-2 bg-muted rounded-md hover:bg-muted/80 transition-colors w-fit">
+                    <div className="flex items-center gap-2 px-4 py-2 bg-background rounded-md hover:bg-muted transition-colors">
                       <Upload className="w-4 h-4" />
                       <span className="text-sm font-medium">Upload Logo</span>
                     </div>
@@ -98,39 +124,16 @@ export default function Company() {
                     className="hidden"
                     onChange={handleLogoUpload}
                   />
-                  <p className="text-xs text-muted-foreground mt-2">
+                  <p className="text-xs text-muted-foreground text-center">
                     PNG, JPG up to 5MB
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Website */}
-            <div className="space-y-2">
-              <Label htmlFor="website">Website</Label>
-              <Input
-                id="website"
-                type="url"
-                value={formData.website}
-                onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-                placeholder="https://example.com"
-              />
-            </div>
-
-            {/* Location */}
-            <div className="space-y-2">
-              <Label htmlFor="location">Location</Label>
-              <Input
-                id="location"
-                value={formData.location}
-                onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                placeholder="City, Country"
-              />
-            </div>
-
             {/* Company Type */}
             <div className="space-y-2">
-              <Label htmlFor="companyType">Company Type *</Label>
+              <Label htmlFor="companyType">Type *</Label>
               <Select
                 value={formData.companyType}
                 onValueChange={(value) => setFormData({ ...formData, companyType: value })}
@@ -140,10 +143,8 @@ export default function Company() {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="staffing">Staffing Agency</SelectItem>
-                  <SelectItem value="recruitment">Recruitment Firm</SelectItem>
+                  <SelectItem value="recruitment">Recruitment Agency / Consulting</SelectItem>
                   <SelectItem value="corporate">Corporate/In-house</SelectItem>
-                  <SelectItem value="consulting">Consulting</SelectItem>
-                  <SelectItem value="other">Other</SelectItem>
                 </SelectContent>
               </Select>
             </div>

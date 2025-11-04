@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { ProgressBar } from "@/components/onboarding/ProgressBar";
 import { HelpCircle } from "lucide-react";
 
-const STEPS = ["Welcome", "Questions", "Company", "Team", "Payment", "Done"];
+const STEPS = ["Welcome", "Questions", "Company", "Payment", "Done"];
 
 export default function Questionnaire() {
   const navigate = useNavigate();
@@ -28,18 +28,28 @@ export default function Questionnaire() {
     <ProgressBar currentStep={2} steps={STEPS}>
       <div className="container max-w-4xl mx-auto px-6 py-12 lg:py-16">
         <div className="bg-card rounded-xl shadow-card p-8 lg:p-12 border border-border">
-          <div className="mb-10">
-            <h1 className="text-3xl lg:text-4xl font-semibold text-foreground mb-3 tracking-tight">Tell us about your needs</h1>
-            <p className="text-base text-muted-foreground">
-              Help us understand your recruiting goals so we can tailor Smoothire to your needs.
-            </p>
+          <div className="mb-10 flex items-center justify-between">
+            <div>
+              <h1 className="text-3xl lg:text-4xl font-semibold text-foreground mb-3 tracking-tight">Tell us about your needs</h1>
+              <p className="text-base text-muted-foreground">
+                Help us understand your recruiting goals so we can tailor Smoothire to your needs.
+              </p>
+            </div>
+            <Button
+              type="button"
+              variant="ghost"
+              onClick={() => navigate("/onboarding/company")}
+              className="text-muted-foreground hover:text-foreground"
+            >
+              Skip
+            </Button>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-10">
             {/* Question 1 */}
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <Label className="text-base font-semibold">What's your primary goal with a new ATS?</Label>
+                <Label className="text-base font-semibold">What's your primary goal with a tool here?</Label>
                 <HelpCircle className="w-4 h-4 text-muted-foreground" />
               </div>
               <RadioGroup
@@ -77,7 +87,7 @@ export default function Questionnaire() {
             {/* Question 2 */}
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <Label className="text-base font-semibold">What are your main evaluation criteria for an ATS?</Label>
+                <Label className="text-base font-semibold">What are your main evaluation criteria?</Label>
                 <HelpCircle className="w-4 h-4 text-muted-foreground" />
               </div>
               <Textarea
@@ -91,7 +101,7 @@ export default function Questionnaire() {
             {/* Question 3 */}
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <Label className="text-base font-semibold">What are your current process pain points?</Label>
+                <Label className="text-base font-semibold">What are the current pain points in your process?</Label>
                 <HelpCircle className="w-4 h-4 text-muted-foreground" />
               </div>
               <Textarea
@@ -106,7 +116,7 @@ export default function Questionnaire() {
             <div className="space-y-4">
               <div className="flex items-center gap-2">
                 <Label htmlFor="teamSize" className="text-base font-semibold">
-                  How many recruiters will need access?
+                  How many recruiters / team members need access?
                 </Label>
                 <HelpCircle className="w-4 h-4 text-muted-foreground" />
               </div>

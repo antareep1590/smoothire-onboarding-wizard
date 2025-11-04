@@ -9,7 +9,6 @@ import Login from "./pages/auth/Login";
 import Welcome from "./pages/onboarding/Welcome";
 import Questionnaire from "./pages/onboarding/Questionnaire";
 import Company from "./pages/onboarding/Company";
-import Team from "./pages/onboarding/Team";
 import Payment from "./pages/onboarding/Payment";
 import Confirmation from "./pages/onboarding/Confirmation";
 
@@ -27,7 +26,6 @@ const App = () => (
           <Route path="/onboarding/welcome" element={<Welcome />} />
           <Route path="/onboarding/questionnaire" element={<Questionnaire />} />
           <Route path="/onboarding/company" element={<Company />} />
-          <Route path="/onboarding/team" element={<Team />} />
           <Route path="/onboarding/payment" element={<Payment />} />
           <Route path="/onboarding/confirmation" element={<Confirmation />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

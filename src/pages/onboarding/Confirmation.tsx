@@ -4,13 +4,13 @@ import { ProgressBar } from "@/components/onboarding/ProgressBar";
 import { Card } from "@/components/ui/card";
 import { CheckCircle2, Rocket, BookOpen, Headphones } from "lucide-react";
 
-const STEPS = ["Welcome", "Questions", "Company", "Team", "Payment", "Done"];
+const STEPS = ["Welcome", "Questions", "Company", "Payment", "Done"];
 
 export default function Confirmation() {
   const navigate = useNavigate();
 
   return (
-    <ProgressBar currentStep={6} steps={STEPS}>
+    <ProgressBar currentStep={5} steps={STEPS}>
       <div className="container max-w-4xl mx-auto px-6 py-12 lg:py-16">
         <div className="text-center space-y-8">
           {/* Success Icon */}
@@ -44,21 +44,21 @@ export default function Confirmation() {
 
             <Card className="p-6 text-center hover:shadow-elevated transition-shadow">
               <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mx-auto mb-3">
-                <BookOpen className="w-6 h-6 text-secondary" />
+                <Headphones className="w-6 h-6 text-secondary" />
               </div>
-              <h3 className="font-semibold mb-2">Resources</h3>
+              <h3 className="font-semibold mb-2">View Quickstart Guide</h3>
               <p className="text-sm text-muted-foreground">
-                Explore guides and best practices
+                Get help from our expert team
               </p>
             </Card>
 
             <Card className="p-6 text-center hover:shadow-elevated transition-shadow">
               <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mx-auto mb-3">
-                <Headphones className="w-6 h-6 text-accent" />
+                <BookOpen className="w-6 h-6 text-accent" />
               </div>
-              <h3 className="font-semibold mb-2">Support</h3>
+              <h3 className="font-semibold mb-2">Resources</h3>
               <p className="text-sm text-muted-foreground">
-                Get help from our expert team
+                Explore guides and best practices
               </p>
             </Card>
           </div>
@@ -75,7 +75,15 @@ export default function Confirmation() {
             <Button
               size="lg"
               variant="outline"
-              onClick={() => window.open("https://docs.example.com", "_blank")}
+              onClick={() => window.open("https://calendly.com", "_blank")}
+              className="px-8"
+            >
+              Schedule a demo
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={() => window.open("https://help.sesami.co/hc/en-us", "_blank")}
               className="px-8"
             >
               View Quickstart Guide
