@@ -31,47 +31,53 @@ export default function Welcome() {
 
   return (
     <ProgressBar currentStep={1} steps={STEPS}>
-      <div className="container max-w-6xl mx-auto px-6 py-12 lg:py-16">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container max-w-6xl mx-auto px-6 py-12 lg:py-20">
+        <div className="grid lg:grid-cols-[1fr,1.2fr] gap-16 items-start">
           {/* Left Side - Welcome Content */}
-          <div className="space-y-6">
+          <div className="space-y-8 lg:pt-8">
             <div className="space-y-4">
-              <h1 className="text-4xl lg:text-5xl font-semibold text-foreground leading-tight tracking-tight">
+              <h1 className="text-4xl lg:text-5xl font-semibold text-[#232323] leading-tight">
                 Welcome to Smoothire
               </h1>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 Simplify your hiring, collaborate with ease, get insights that matter.
               </p>
             </div>
 
-            <div className="space-y-4 pt-4">
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="w-6 h-6 text-success mt-1 flex-shrink-0" />
+            <div className="space-y-6 pt-4">
+              <div className="flex items-start gap-4">
+                <div className="w-6 h-6 rounded-full bg-success/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <CheckCircle2 className="w-4 h-4 text-success" />
+                </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">Streamlined Recruiting</h3>
-                  <p className="text-muted-foreground">Manage your entire hiring process in one place</p>
+                  <h3 className="font-semibold text-[#232323] mb-1">Streamlined Recruiting</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">Manage your entire hiring process in one place</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="w-6 h-6 text-success mt-1 flex-shrink-0" />
+              <div className="flex items-start gap-4">
+                <div className="w-6 h-6 rounded-full bg-success/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <CheckCircle2 className="w-4 h-4 text-success" />
+                </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">Team Collaboration</h3>
-                  <p className="text-muted-foreground">Work seamlessly with your hiring team</p>
+                  <h3 className="font-semibold text-[#232323] mb-1">Team Collaboration</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">Work seamlessly with your hiring team</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="w-6 h-6 text-success mt-1 flex-shrink-0" />
+              <div className="flex items-start gap-4">
+                <div className="w-6 h-6 rounded-full bg-success/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <CheckCircle2 className="w-4 h-4 text-success" />
+                </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">Powerful Insights</h3>
-                  <p className="text-muted-foreground">Make data-driven hiring decisions</p>
+                  <h3 className="font-semibold text-[#232323] mb-1">Powerful Insights</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">Make data-driven hiring decisions</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Right Side - Registration Form */}
-          <div className="bg-card rounded-xl shadow-card p-8 border border-border">
-            <h2 className="text-2xl font-semibold text-foreground mb-6">Create your account</h2>
+          <div className="bg-card rounded-xl shadow-card p-10 border border-border">
+            <h2 className="text-2xl font-semibold text-[#232323] mb-8">Create your account</h2>
             
             <div className="space-y-4">
               {/* SSO Buttons */}
@@ -188,6 +194,21 @@ export default function Welcome() {
                   Create Account
                 </Button>
               </form>
+
+              {/* Login Link */}
+              <div className="pt-6 mt-6 border-t border-border">
+                <p className="text-center text-sm text-muted-foreground mb-3">
+                  Already have an account?
+                </p>
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="w-full"
+                  onClick={() => navigate("/login")}
+                >
+                  Login here
+                </Button>
+              </div>
             </div>
           </div>
         </div>
