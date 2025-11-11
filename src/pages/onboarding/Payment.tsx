@@ -6,17 +6,43 @@ import { Label } from "@/components/ui/label";
 import { ProgressBar } from "@/components/onboarding/ProgressBar";
 import { Card } from "@/components/ui/card";
 import { Check, CreditCard, Lock } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-const STEPS = ["Welcome", "Questions", "Company", "Team", "Payment", "Done"];
+const STEPS = ["Welcome", "Questions", "Company", "Payment", "Done"];
+
+type PlanType = "pro" | "pro-plus";
+
+const PLAN_FEATURES = {
+  pro: [
+    "Full access to all features",
+    "Unlimited job postings",
+    "Collaborative hiring tools",
+    "Advanced analytics & reporting",
+    "Priority customer support",
+  ],
+  "pro-plus": [
+    "Everything in Pro, plus:",
+    "Advanced AI-powered candidate matching",
+    "Custom branding & white-label options",
+    "Dedicated account manager",
+    "API access & integrations",
+    "Advanced security & compliance",
+  ],
+};
 
 export default function Payment() {
   const navigate = useNavigate();
+  const [selectedPlan, setSelectedPlan] = useState<PlanType>("pro");
   const [paymentData, setPaymentData] = useState({
     cardNumber: "",
     expiryDate: "",
     cvv: "",
     nameOnCard: "",
   });
+
+  const trialDuration = selectedPlan === "pro" ? "14 days" : "14 days";
+  const userLimit = selectedPlan === "pro" ? "2 users" : "5 users";
+  const planName = selectedPlan === "pro" ? "Pro" : "Pro+";
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,41 +54,85 @@ export default function Payment() {
   };
 
   return (
-    <ProgressBar currentStep={5} steps={STEPS}>
+    <ProgressBar currentStep={4} steps={STEPS}>
       <div className="container max-w-5xl mx-auto px-6 py-12 lg:py-16">
+        {/* Plan Selection */}
+        <div className="mb-8">
+          <h2 className="text-2xl font-semibold text-foreground mb-4">Select Your Trial Plan</h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            <Card
+              className={cn(
+                "p-6 cursor-pointer transition-all border-2",
+                selectedPlan === "pro"
+                  ? "border-success bg-success/5"
+                  : "border-border hover:border-muted-foreground/30"
+              )}
+              onClick={() => setSelectedPlan("pro")}
+            >
+              <div className="flex items-start justify-between mb-3">
+                <h3 className="text-xl font-bold text-foreground">Pro Free Trial</h3>
+                {selectedPlan === "pro" && (
+                  <Check className="w-6 h-6 text-success flex-shrink-0" />
+                )}
+              </div>
+              <div className="space-y-2 mb-4">
+                <p className="text-sm text-muted-foreground">
+                  <span className="font-semibold text-foreground">Duration:</span> {trialDuration}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  <span className="font-semibold text-foreground">Users:</span> Up to 2 users
+                </p>
+              </div>
+              <p className="text-sm text-muted-foreground">Perfect for small teams getting started with hiring.</p>
+            </Card>
+
+            <Card
+              className={cn(
+                "p-6 cursor-pointer transition-all border-2",
+                selectedPlan === "pro-plus"
+                  ? "border-success bg-success/5"
+                  : "border-border hover:border-muted-foreground/30"
+              )}
+              onClick={() => setSelectedPlan("pro-plus")}
+            >
+              <div className="flex items-start justify-between mb-3">
+                <h3 className="text-xl font-bold text-foreground">Pro+ Free Trial</h3>
+                {selectedPlan === "pro-plus" && (
+                  <Check className="w-6 h-6 text-success flex-shrink-0" />
+                )}
+              </div>
+              <div className="space-y-2 mb-4">
+                <p className="text-sm text-muted-foreground">
+                  <span className="font-semibold text-foreground">Duration:</span> {selectedPlan === "pro-plus" ? "14 days" : trialDuration}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  <span className="font-semibold text-foreground">Users:</span> Up to 5 users
+                </p>
+              </div>
+              <p className="text-sm text-muted-foreground">Advanced features for growing teams with extra needs.</p>
+            </Card>
+          </div>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Left Side - Trial Info */}
           <div className="space-y-6">
             <div>
               <h1 className="text-3xl lg:text-4xl font-semibold text-foreground mb-3 tracking-tight">Start Your Free Trial</h1>
               <p className="text-base text-muted-foreground">
-                Get full access to Smoothire for 14 days, completely free.
+                You'll experience all {planName} features during your free trial for {trialDuration}.
               </p>
             </div>
 
             <Card className="p-6 bg-gradient-to-br from-primary/5 to-secondary/5 border-primary/20">
-              <h3 className="font-semibold text-lg mb-4">What's included in your trial:</h3>
+              <h3 className="font-semibold text-lg mb-4">What's included in your {planName} trial:</h3>
               <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
-                  <span className="text-sm">Full access to all features</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
-                  <span className="text-sm">Unlimited job postings</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
-                  <span className="text-sm">Collaborative hiring tools</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
-                  <span className="text-sm">Advanced analytics & reporting</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
-                  <span className="text-sm">Priority customer support</span>
-                </li>
+                {PLAN_FEATURES[selectedPlan].map((feature, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">{feature}</span>
+                  </li>
+                ))}
               </ul>
             </Card>
 
